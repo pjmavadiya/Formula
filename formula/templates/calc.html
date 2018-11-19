@@ -1,0 +1,30 @@
+
+
+<html>
+<head>
+    <title>Enter Formula</title>
+</head>
+<body>
+
+    <table border=1>
+    
+    {% for d in data %}
+        <tr id= row_{{ d.name }} >
+        <td id={{ d.name }}><input type=text value={{ d.name }} disabled></td>
+        <td id={{ d.operandA }}><input type=text value={{ d.operandA }} disabled></td>
+        <td id={{ d.operator }}><input type=text disabled value={{ d.operator }}></td>
+        <td id={{ d.operandB }}><input type=text disabled value={{ d.operandB }}></td>
+        </tr>
+    {% endfor %} 
+
+    <br><br>
+
+    <label>There must be space between each paramerter : func1 + func2 - 10 / func5 </label>
+    <br>
+    <form action="/find_value/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Calculate">
+    </form>
+    <br><br>
+</body>
+</html>

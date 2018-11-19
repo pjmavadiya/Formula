@@ -1,0 +1,22 @@
+
+<html>
+<head>
+    <title>Enter Formula</title>
+</head>
+<body>
+
+    <table border=1>
+    
+    {% for d in data %}
+        <tr id= row_{{ d.name }} >
+        <td id={{ d.name }}><input type=text value={{ d.name }}></td>
+        <td id={{ d.operandA }}><input type=text value={{ d.operandA }}></td>
+        <td id={{ d.operator }}><input type=text value={{ d.operator }}></td>
+        <td id={{ d.operandB }}><input type=text value={{ d.operandB }}></td>
+        </tr>
+    {% endfor %} 
+
+
+</body>
+</html>
+
