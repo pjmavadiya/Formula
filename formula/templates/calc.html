@@ -16,7 +16,7 @@
         <td id={{ d.operandB }}><input type=text disabled value={{ d.operandB }}></td>
         </tr>
     {% endfor %} 
-
+    </table>
     <br><br>
 
     <label>There must be space between each paramerter : func1 + func2 - 10 / func5 </label>
@@ -26,5 +26,7 @@
         <input type="submit" value="Calculate">
     </form>
     <br><br>
+    Formula : {{ formula }}<br>
+    Answer: {{ answer }}
 </body>
 </html>

@@ -16,11 +16,14 @@ def test(request):
     for d in data:
         if d.operator:
             d.operator = OPERATOR_CHOICES[d.operator]
-    return render(request, 'calc.html', {'data': data})
+    formula = request.GET['q']
+    answer = find_value(request, True)
+    return render(request, 'calc.html', {'data': data, 'answer':answer, 'formula':formula})
     #return render(request, 'calc.html')
 
 
-def find_value(request):
+def find_value(request, inter=False):
+
     if 'q' in request.GET:
         data = request.GET['q']
         try:
@@ -33,6 +36,8 @@ def find_value(request):
 
         global values
         values = []
+        if inter:
+            return answer
         return HttpResponse(str(answer))
 
 
