@@ -16,8 +16,12 @@ def test(request):
     for d in data:
         if d.operator:
             d.operator = OPERATOR_CHOICES[d.operator]
-    formula = request.GET['q']
-    answer = find_value(request, True)
+    if 'q' in request.GET:
+        formula = request.GET['q']
+        answer = find_value(request, True)
+    else:
+        formula = None
+        answer = None
     return render(request, 'calc.html', {'data': data, 'answer':answer, 'formula':formula})
     #return render(request, 'calc.html')
 
